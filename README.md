@@ -49,7 +49,7 @@ Fundador do **CrefazON**, plataforma de automação para crédito consignado pri
 
 ---
 
-## Projeto Principal
+## Projetos
 
 <div align="center">
 
@@ -58,6 +58,14 @@ Fundador do **CrefazON**, plataforma de automação para crédito consignado pri
 **CrefazON** — Plataforma de automação para Crédito do Trabalhador (Consignado Privado)
 
 Bot WhatsApp com IA · Robô Playwright · API REST · Deploy contínuo no Railway
+
+<br/>
+
+[![JRS PDV](https://github-readme-stats.vercel.app/api/pin/?username=joelgomes-29&repo=jrs-pdv&theme=default&hide_border=true&title_color=0A66C2&icon_color=0A66C2)](https://github.com/joelgomes-29/jrs-pdv)
+
+**JRS PDV** — Sistema de Ponto de Venda completo para gestão comercial
+
+Vendas · Estoque · Relatórios · Interface intuitiva para operação no caixa
 
 </div>
 
