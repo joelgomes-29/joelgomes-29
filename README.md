@@ -2,13 +2,12 @@
 
 # Joel Gomes Silva
 
-**Fundador & Desenvolvedor Full Stack**
+### Desenvolvedor Full Stack · Automação de Processos e Integração de Sistemas
 
-*Construindo soluções tecnológicas que automatizam processos e escalam negócios*
+Recife, PE — Brasil
 
-[![Email](https://img.shields.io/badge/joel.gomes.silva2003%40gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:joel.gomes.silva2003@gmail.com)
-[![GitHub](https://img.shields.io/badge/joelgomes--29-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/joelgomes-29)
-![Localização](https://img.shields.io/badge/Recife%2C%20PE%20–%20Brasil-0A66C2?style=flat-square&logo=googlemaps&logoColor=white)
+[![Email](https://img.shields.io/badge/E--mail-joel.gomes.silva2003%40gmail.com-0A66C2?style=flat-square&logo=maildotru&logoColor=white)](mailto:joel.gomes.silva2003@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-perfil-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/SEU-USUARIO)
 
 </div>
 
@@ -16,78 +15,125 @@
 
 ## Sobre
 
-Desenvolvedor com foco em **automação de processos**, **integração de sistemas** e **produtos digitais escaláveis**. Atuo na construção de soluções completas — do backend ao robô — com ênfase em resultados reais para o negócio.
+Construo sistemas que tiram processos manuais do caminho: APIs, robôs de automação web e
+integrações entre plataformas que não foram feitas para conversar entre si.
 
-Fundador do **CrefazON**, plataforma de automação para crédito consignado privado que une WhatsApp, inteligência artificial e automação web para conectar trabalhadores a linhas de crédito de forma rápida e digital.
+Meu trabalho atual é o **CrefazON**, uma plataforma de originação de crédito consignado privado
+que leva o cliente da primeira mensagem no WhatsApp até a proposta registrada no portal da
+financeira sem intervenção humana — atendimento conduzido por IA, dados validados na entrada e
+um robô Playwright operando o portal ponta a ponta.
 
-> *"Tecnologia que não resolve um problema real não vale nada."*
+Trabalho o produto inteiro: modelagem de dados, API, automação, frontend operacional e deploy.
 
 ---
 
-## Stack Principal
+## Experiência técnica em projetos
 
-**Backend & Automação**
+### CrefazON — Plataforma de originação de crédito
 
+Automação completa do fluxo de crédito do trabalhador, empréstimo na conta de energia e
+refinanciamento veicular.
+
+| Camada | Implementação |
+| --- | --- |
+| **API** | NestJS + TypeScript, organizada em módulos por domínio: clientes, propostas, documentos, endereços, dados bancários e profissionais |
+| **Atendimento** | Bot de WhatsApp integrado à Evolution API e à Meta Cloud API, com webhooks para recebimento de mensagens |
+| **Atendimento conversacional** | Coleta de dados conduzida por LLM, com motor local determinístico como fallback quando o provedor está indisponível |
+| **Validação** | CPF validado por dígito verificador, datas e CEP checados na entrada — antes de qualquer chamada ao portal |
+| **Automação web** | Robô Playwright que faz login, simula, seleciona a oferta, envia documentos e acompanha a proposta no portal da financeira |
+| **Dados** | Supabase / PostgreSQL, com persistência de estado parcial para retomar atendimentos interrompidos |
+| **Operação** | Dashboard próprio com propostas, conversas e logs do robô em tempo real |
+| **Deploy** | Docker, publicado no Railway |
+
+**Decisões de engenharia que valem destacar:** a coleta de dados tem dois motores (IA e local)
+porque indisponibilidade de API externa não pode derrubar o atendimento; o estado da conversa é
+persistido a cada etapa para que uma queda não custe o cliente; e a validação acontece na borda,
+não no portal, para não gastar sessão de robô com dado inválido.
+
+### Sistemas de ponto de venda
+
+| Projeto | Escopo |
+| --- | --- |
+| **JRS PDV** | Sistema de ponto de venda para gestão comercial — vendas, estoque e relatórios |
+| **Twist Cream PDV** | PDV de quiosque: atendente, caixa, emissão de NFC-e e ponte de integração com o Pixet |
+
+### DF Office — Canal de atualização automática · [código público](https://github.com/joelgomes-29/df-office-updates)
+
+Sistema de distribuição de atualizações (OTA) para o DF Office, produto interno em operação na
+FG Consultoria. O servidor do escritório se atualiza sozinho, sem ninguém copiar arquivo.
+
+| Etapa | Implementação |
+| --- | --- |
+| **Descoberta** | O servidor consulta um `manifest.json` versionado no repositório e compara com a versão instalada usando comparação semântica, não string |
+| **Integridade** | O pacote baixado é conferido contra o SHA256 publicado no manifesto antes de qualquer coisa ser aplicada |
+| **Aplicação** | Encerra a tarefa agendada que mantém o sistema no ar, aplica o pacote e devolve o controle, para o serviço voltar sozinho no boot |
+| **Verificação** | Health check após a aplicação, confirmando que o sistema subiu na versão esperada |
+| **Falha** | Qualquer erro no caminho restaura a versão anterior |
+
+Publicar uma versão é copiar o ZIP, atualizar o manifesto e dar push — o parque encontra sozinho.
+O repositório carrega apenas o programa: nenhum dado de cliente, credencial ou base trafega nele.
+
+> Este é o repositório público do meu portfólio — dá para ler o script de atualização inteiro.
+
+---
+
+## Stack
+
+**Backend**
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=flat-square&logo=nestjs&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 
-**Banco de Dados & Infraestrutura**
-
+**Dados**
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white)
-![Railway](https://img.shields.io/badge/Railway-0B0D0E?style=flat-square&logo=railway&logoColor=white)
 
-**Frontend & Integrações**
-
-![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+**Automação & Integrações**
+![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white)
 ![WhatsApp API](https://img.shields.io/badge/WhatsApp%20API-25D366?style=flat-square&logo=whatsapp&logoColor=white)
-![Claude AI](https://img.shields.io/badge/Claude%20AI-CC785C?style=flat-square&logo=anthropic&logoColor=white)
+
+**Frontend**
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+
+**Infraestrutura**
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Railway](https://img.shields.io/badge/Railway-0B0D0E?style=flat-square&logo=railway&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 
 ---
 
-## Projetos
+## Contato
 
-<div align="center">
+A maior parte do meu código está em repositórios privados de produtos em operação.
+Posso apresentar arquitetura, trechos de código e demonstração mediante contato.
 
-[![CrefazON](https://github-readme-stats.vercel.app/api/pin/?username=joelgomes-29&repo=crefaz-backend&theme=default&hide_border=true&title_color=0A66C2&icon_color=0A66C2)](https://github.com/joelgomes-29/crefaz-backend)
+[![Email](https://img.shields.io/badge/Falar%20comigo-0A66C2?style=for-the-badge&logo=maildotru&logoColor=white)](mailto:joel.gomes.silva2003@gmail.com)
 
-**CrefazON** — Plataforma de automação para Crédito do Trabalhador (Consignado Privado)
+---
 
-Bot WhatsApp com IA · Robô Playwright · API REST · Deploy contínuo no Railway
+<details>
+<summary><b>English summary</b></summary>
 
 <br/>
 
-[![JRS PDV](https://github-readme-stats.vercel.app/api/pin/?username=joelgomes-29&repo=jrs-pdv&theme=default&hide_border=true&title_color=0A66C2&icon_color=0A66C2)](https://github.com/joelgomes-29/jrs-pdv)
+Full stack developer based in Recife, Brazil, focused on process automation and systems
+integration. I build the whole product: data modelling, REST APIs, web automation robots,
+operational frontends and deployment.
 
-**JRS PDV** — Sistema de Ponto de Venda completo para gestão comercial
+Currently building **CrefazON**, a payroll-loan origination platform that takes a customer from
+a first WhatsApp message to a proposal filed in the lender's portal with no human in the loop —
+an AI-driven conversational intake, input validated at the edge, and a Playwright robot driving
+the portal end to end. Built with NestJS, TypeScript, Supabase/PostgreSQL, Playwright and
+an LLM provider, containerised with Docker and deployed on Railway.
 
-Vendas · Estoque · Relatórios · Interface intuitiva para operação no caixa
+Most of my code lives in private repositories for products in production. One piece is public:
+[df-office-updates](https://github.com/joelgomes-29/df-office-updates), an over-the-air update
+channel for an internal product — manifest-driven version discovery, SHA256 integrity checks,
+service lifecycle handling and rollback on failure.
 
-</div>
+Happy to walk through architecture and code on request — reach me at
+[joel.gomes.silva2003@gmail.com](mailto:joel.gomes.silva2003@gmail.com).
 
----
-
-## Estatísticas
-
-<div align="center">
-
-<img height="155" src="https://github-readme-stats.vercel.app/api?username=joelgomes-29&show_icons=true&theme=default&hide_border=true&count_private=true&include_all_commits=true&title_color=0A66C2&icon_color=0A66C2" />
-<img height="155" src="https://github-readme-stats.vercel.app/api/top-langs/?username=joelgomes-29&layout=compact&theme=default&hide_border=true&langs_count=6&title_color=0A66C2" />
-
-<img src="https://github-readme-streak-stats.herokuapp.com?user=joelgomes-29&theme=default&hide_border=true&locale=pt_BR&ring=0A66C2&fire=0A66C2&currStreakLabel=0A66C2" />
-
-</div>
-
----
-
-<div align="center">
-
-*Aberto a parcerias, projetos e oportunidades de negócio.*
-
-[![Email](https://img.shields.io/badge/Entre%20em%20contato-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:joel.gomes.silva2003@gmail.com)
-
-</div>
+</details>
