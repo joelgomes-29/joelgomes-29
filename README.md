@@ -57,11 +57,23 @@ não no portal, para não gastar sessão de robô com dado inválido.
 | **JRS PDV** | Sistema de ponto de venda para gestão comercial — vendas, estoque e relatórios |
 | **Twist Cream PDV** | PDV de quiosque: atendente, caixa, emissão de NFC-e e ponte de integração com o Pixet |
 
-### Automação de infraestrutura
+### DF Office — Canal de atualização automática · [código público](https://github.com/joelgomes-29/df-office-updates)
 
-| Projeto | Escopo |
+Sistema de distribuição de atualizações (OTA) para o DF Office, produto interno em operação na
+FG Consultoria. O servidor do escritório se atualiza sozinho, sem ninguém copiar arquivo.
+
+| Etapa | Implementação |
 | --- | --- |
-| **[df-office-updates](https://github.com/joelgomes-29/df-office-updates)** | Automação em PowerShell para gestão de atualizações em parque de máquinas Windows |
+| **Descoberta** | O servidor consulta um `manifest.json` versionado no repositório e compara com a versão instalada usando comparação semântica, não string |
+| **Integridade** | O pacote baixado é conferido contra o SHA256 publicado no manifesto antes de qualquer coisa ser aplicada |
+| **Aplicação** | Encerra a tarefa agendada que mantém o sistema no ar, aplica o pacote e devolve o controle, para o serviço voltar sozinho no boot |
+| **Verificação** | Health check após a aplicação, confirmando que o sistema subiu na versão esperada |
+| **Falha** | Qualquer erro no caminho restaura a versão anterior |
+
+Publicar uma versão é copiar o ZIP, atualizar o manifesto e dar push — o parque encontra sozinho.
+O repositório carrega apenas o programa: nenhum dado de cliente, credencial ou base trafega nele.
+
+> Este é o repositório público do meu portfólio — dá para ler o script de atualização inteiro.
 
 ---
 
@@ -117,8 +129,12 @@ an AI-driven conversational intake, input validated at the edge, and a Playwrigh
 the portal end to end. Built with NestJS, TypeScript, Supabase/PostgreSQL, Playwright and the
 Anthropic API, containerised with Docker and deployed on Railway.
 
-Most of my code lives in private repositories for products in production. Happy to walk through
-architecture and code on request — reach me at
+Most of my code lives in private repositories for products in production. One piece is public:
+[df-office-updates](https://github.com/joelgomes-29/df-office-updates), an over-the-air update
+channel for an internal product — manifest-driven version discovery, SHA256 integrity checks,
+service lifecycle handling and rollback on failure.
+
+Happy to walk through architecture and code on request — reach me at
 [joel.gomes.silva2003@gmail.com](mailto:joel.gomes.silva2003@gmail.com).
 
 </details>
