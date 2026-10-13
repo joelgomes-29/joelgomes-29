@@ -38,7 +38,7 @@ refinanciamento veicular.
 | --- | --- |
 | **API** | NestJS + TypeScript, organizada em módulos por domínio: clientes, propostas, documentos, endereços, dados bancários e profissionais |
 | **Atendimento** | Bot de WhatsApp integrado à Evolution API e à Meta Cloud API, com webhooks para recebimento de mensagens |
-| **IA** | Claude (Anthropic SDK) conduzindo a coleta conversacional, com motor local determinístico como fallback quando a API está indisponível |
+| **Atendimento conversacional** | Coleta de dados conduzida por LLM, com motor local determinístico como fallback quando o provedor está indisponível |
 | **Validação** | CPF validado por dígito verificador, datas e CEP checados na entrada — antes de qualquer chamada ao portal |
 | **Automação web** | Robô Playwright que faz login, simula, seleciona a oferta, envia documentos e acompanha a proposta no portal da financeira |
 | **Dados** | Supabase / PostgreSQL, com persistência de estado parcial para retomar atendimentos interrompidos |
@@ -91,7 +91,6 @@ O repositório carrega apenas o programa: nenhum dado de cliente, credencial ou 
 **Automação & Integrações**
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white)
 ![WhatsApp API](https://img.shields.io/badge/WhatsApp%20API-25D366?style=flat-square&logo=whatsapp&logoColor=white)
-![Anthropic](https://img.shields.io/badge/Anthropic%20API-CC785C?style=flat-square&logo=anthropic&logoColor=white)
 
 **Frontend**
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
@@ -126,8 +125,8 @@ operational frontends and deployment.
 Currently building **CrefazON**, a payroll-loan origination platform that takes a customer from
 a first WhatsApp message to a proposal filed in the lender's portal with no human in the loop —
 an AI-driven conversational intake, input validated at the edge, and a Playwright robot driving
-the portal end to end. Built with NestJS, TypeScript, Supabase/PostgreSQL, Playwright and the
-Anthropic API, containerised with Docker and deployed on Railway.
+the portal end to end. Built with NestJS, TypeScript, Supabase/PostgreSQL, Playwright and
+an LLM provider, containerised with Docker and deployed on Railway.
 
 Most of my code lives in private repositories for products in production. One piece is public:
 [df-office-updates](https://github.com/joelgomes-29/df-office-updates), an over-the-air update
